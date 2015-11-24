@@ -9,39 +9,45 @@ import net.KoopaECS.Util.Config;
 public class Program {
 	
 	public enum STATES {RUNNING, PAUSED, STOP};
-	private STATES state;
+	private STATES _state;
 	
-	private RenderHandler renderHandler;
-	private CollisionHandler collisionHandler;
+	private RenderHandler    _renderHandler;
+	private CollisionHandler _collisionHandler;
 	
-	private Window window = new Window(Config.screenWidth, Config.screenHeight, "Koopa ECS| Engine");
-	
-	
-	public void init(){}
+	private Window _window = new Window(Config.screenWidth, Config.screenHeight, "KoopaECS| Engine");
 	
 	
 	
-	public void quit(){}
-	
-	
-	
-	public void run(){
+	public void init() {
 		
-		state = STATES.RUNNING;
+		_renderHandler 	  = new RenderHandler();
+		_collisionHandler = new CollisionHandler();
+		
+	}
+	
+	
+	
+	public void quit() {}
+	
+	
+	
+	public void run() {
+		
+		_state = STATES.RUNNING;
+		
 		mainUpdate();
 		
 	}
 	
 	
 	
-	public void mainUpdate(){
+	public void mainUpdate() {
 		
-		while(state != STATES.STOP){
+		while(_state != STATES.STOP){
 			
-			//Udates the Handlers :P
-			
-			renderHandler.update();
-			collisionHandler.update();
+			// Update handlers
+			_renderHandler.update();
+			_collisionHandler.update();
 			
 		}
 		
