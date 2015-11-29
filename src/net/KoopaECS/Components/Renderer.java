@@ -1,8 +1,5 @@
 package net.KoopaECS.Components;
 
-
-import java.net.URL;
-
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 

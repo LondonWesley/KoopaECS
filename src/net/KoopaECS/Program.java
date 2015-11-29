@@ -2,6 +2,9 @@ package net.KoopaECS;
 
 
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import net.KoopaECS.Handlers.CollisionHandler;
@@ -9,34 +12,29 @@ import net.KoopaECS.Handlers.RenderHandler;
 import net.KoopaECS.Util.Config;
 
 
-public class Program {
+public class Program extends BasicGame {
 	
 	public enum STATES {RUNNING, PAUSED, STOP};
 	private STATES _state;
+	
+	AppGameContainer _window;
 	
 	private RenderHandler    _renderHandler;
 	private CollisionHandler _collisionHandler;
 	
 	
 	
-	public void init(){
+	public Program() throws SlickException {
 		
-		_renderHandler = new RenderHandler();
-		_collisionHandler 	= new CollisionHandler();
+		super(Config.title);
 		
-		try {
-			
-			
-			AppGameContainer window = new AppGameContainer(_renderHandler);
-			window.setDisplayMode(Config.screenWidth, Config.screenHeight, false);
-			window.start();
-			
-		} catch (SlickException e) {
-			
-			e.printStackTrace();
-			
-		}
+		_renderHandler    = new RenderHandler();
+		_collisionHandler = new CollisionHandler();
 		
+		
+		_window = new AppGameContainer(this);
+		_window.setDisplayMode(Config.screenWidth, Config.screenHeight, false);
+			
 	}
 	
 	
@@ -45,25 +43,42 @@ public class Program {
 	
 	
 	
-	public void run() {
+	public void run() throws SlickException {
 		
 		_state = STATES.RUNNING;
 		
-		mainUpdate();
+		_window.start();
+		
+	}
+	
+
+	
+	@Override
+	public void init(GameContainer frame) throws SlickException {
+		
+		frame.setAlwaysRender(true);
+		
+		frame.setClearEachFrame(true);
+		frame.setShowFPS(true);
+		frame.setVSync(true);
 		
 	}
 	
 	
-	
-	public void mainUpdate() {
+
+	@Override
+	public void render(GameContainer frame, Graphics graphics) throws SlickException {
+		_renderHandler.update(frame, graphics);
 		
-		while(_state != STATES.STOP){
-			
-			// Update handlers
-			//_renderHandler.update();
-			_collisionHandler.update();
-			
-		}
+	}
+
+
+
+	@Override
+	public void update(GameContainer frame, int dt) throws SlickException {
+		
+		//_collisionHandler.update(dt);
+		//_entityHandler.update();
 		
 	}
 	

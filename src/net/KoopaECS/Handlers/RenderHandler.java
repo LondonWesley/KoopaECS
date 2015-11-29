@@ -2,61 +2,49 @@ package net.KoopaECS.Handlers;
 
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-
-import org.newdawn.slick.BasicGame;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import net.KoopaECS.Components.Renderer;
-import net.KoopaECS.Entities.Player;
 import net.KoopaECS.Util.Config;
 
 
-public class RenderHandler extends BasicGame {
+public class RenderHandler {
 
 
-	ArrayList<Renderer> rendererComponents = new ArrayList<Renderer>();
+	private ArrayList<Renderer> _rendererComponents;
 	
-	Player player;
 	
-	public static GameContainer gameContainer;
 	
-	// Setup render context
 	public RenderHandler() {
 		
-		super("KoopaECS|Engine");
+		_rendererComponents = new ArrayList<Renderer>();
 		
 	}
-
-
 	
-	public void render(GameContainer gc, Graphics g) throws SlickException {
-		
-		
-		g.setBackground(Config.backgroundColor);
-		g.drawImage(player.baseEntity.renderer.texture, 20,20);
-		
-	}
-
-
 	
-	public void init(GameContainer gc) throws SlickException {
-		
-		player = new Player();
-		gc = gameContainer;
-		
-	}
-
-
 	
-	public void update(GameContainer gc, int delta) throws SlickException {
+	public void update(GameContainer frame, Graphics graphics) throws SlickException {
 		
-		//player.playerControls. -- not feenished
+		for (Renderer renderComponent : _rendererComponents) {
+			
+			// Clear screen for next render (Might be redundent / TODO: Check
+			graphics.setColor(Config.backgroundColor);
+			graphics.fillRect(0, 0, Config.screenWidth, Config.screenHeight);
+			
+			
+			// Gather data from renderComponent's parent entity
+			
+			// Draw renderComponent's gathered data
+			//~~graphics.drawImage(renderComponent.texture, );
+			
+		}
+		
 		
 	}
+
+
 
 }
 
