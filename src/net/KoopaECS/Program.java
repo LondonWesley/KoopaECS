@@ -1,6 +1,9 @@
 package net.KoopaECS;
 
-import net.KoopaECS.Framework.Window;
+
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.SlickException;
+
 import net.KoopaECS.Handlers.CollisionHandler;
 import net.KoopaECS.Handlers.RenderHandler;
 import net.KoopaECS.Util.Config;
@@ -14,14 +17,25 @@ public class Program {
 	private RenderHandler    _renderHandler;
 	private CollisionHandler _collisionHandler;
 	
-	private Window _window = new Window(Config.screenWidth, Config.screenHeight, "KoopaECS| Engine");
 	
 	
-	
-	public void init() {
+	public void init(){
 		
-		_renderHandler 	  = new RenderHandler();
-		_collisionHandler = new CollisionHandler();
+		_renderHandler = new RenderHandler();
+		_collisionHandler 	= new CollisionHandler();
+		
+		try {
+			
+			
+			AppGameContainer window = new AppGameContainer(_renderHandler);
+			window.setDisplayMode(Config.screenWidth, Config.screenHeight, false);
+			window.start();
+			
+		} catch (SlickException e) {
+			
+			e.printStackTrace();
+			
+		}
 		
 	}
 	
@@ -46,7 +60,7 @@ public class Program {
 		while(_state != STATES.STOP){
 			
 			// Update handlers
-			_renderHandler.update();
+			//_renderHandler.update();
 			_collisionHandler.update();
 			
 		}
