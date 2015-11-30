@@ -7,13 +7,14 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import net.KoopaECS.Components.Renderer;
+import net.KoopaECS.Entities.BaseEntity;
 import net.KoopaECS.Util.Config;
 
 
 public class RenderHandler {
 
 
-	private ArrayList<Renderer> _rendererComponents;
+	private static ArrayList<Renderer> _rendererComponents;
 	
 	
 	
@@ -35,15 +36,23 @@ public class RenderHandler {
 			
 			
 			// Gather data from renderComponent's parent entity
+			float x = (float) renderComponent._parentEntity.transform.x;
+			float y = (float) renderComponent._parentEntity.transform.y;
+			
 			
 			// Draw renderComponent's gathered data
-			//~~graphics.drawImage(renderComponent.texture, );
+			graphics.drawImage(renderComponent._texture, x, y);
 			
 		}
 		
 		
 	}
 
+	
+	
+	public static void registerRenderer(Renderer renderer) {
+		_rendererComponents.add(renderer);
+	}
 
 
 }

@@ -4,30 +4,40 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import net.KoopaECS.Entities.BaseEntity;
+import net.KoopaECS.Handlers.RenderHandler;
 
 
 public class Renderer {
 
-	public Image texture;
-	public BaseEntity parentEntity;
+	public Image _texture;
+	public BaseEntity _parentEntity;
+	
+	
+	
+	public Renderer(BaseEntity entity) {
+		
+		_parentEntity = entity;
+		RenderHandler.registerRenderer(this);
+		
+	}
+	
 	
 	
 	public Renderer(BaseEntity entity, String texturePath) {
 		
+		_parentEntity = entity;
+		RenderHandler.registerRenderer(this);
 		generateTexture(texturePath);
 		
 	}
 
 	
 	
-	void generateTexture(String path) {
+	public void generateTexture(String path) {
 		
-		try {
-			texture = new Image("ImgRes/Folder.jpg");
-		} catch (SlickException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try { 
+			_texture = new Image(path);
+		} catch (SlickException e) { e.printStackTrace(); }
 		
 	}
 

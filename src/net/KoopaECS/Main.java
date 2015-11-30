@@ -13,6 +13,7 @@ public class Main {
 		try {
 			
 			program = new Program();
+			
 			program.run();
 			
 		} catch (SlickException e) { e.printStackTrace(); }
