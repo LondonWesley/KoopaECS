@@ -46,6 +46,13 @@ public class Physics {
 		 
 	}
 	
+	public void updateDirections(){
+		
+		_parentEntity.transform.x += _accelerationX;
+		_parentEntity.transform.y += _accelerationY;
+		
+	}
+	
 	
 	
 	
@@ -62,6 +69,7 @@ public class Physics {
 	public void update(double dt){
 		
 		calcAcceleration(dt);
+		updateDirections();
 		
 	}
 }

@@ -6,17 +6,25 @@ public class Transform {
 	public double x;
 	public double y;
 	
+	public int directionX;
+	public int directionY;
+	
 	
 	public double angle;
 	
 	
 	public Transform() {
 		
-		x = 0;
-		y = 0;
-		angle = 0;
+		x 			= 0;
+		y 			= 0;
+		directionX 	= 0;
+		directionY 	= 0;
+		
+		angle 		= 0;
+		
 		
 	}
+	
 	
 	
 	
@@ -41,8 +49,24 @@ public class Transform {
 
 	public void update() {
 		
-		// Apply velocity to position
 		
+		
+	}
+
+
+
+
+	public double getDirectionY() {
+		
+		return this.directionY;
+	}
+
+
+
+
+	public double getDirectionX() {
+		
+		return this.directionX;
 	}
 	
 }

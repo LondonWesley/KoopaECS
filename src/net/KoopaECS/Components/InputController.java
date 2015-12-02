@@ -42,18 +42,36 @@ public class InputController {
 		int d = Input.KEY_D;
 		
 		if (_inputs.isKeyDown(w))
-			_directionY = 1;
-		else if (_inputs.isKeyDown(s))
 			_directionY = -1;
-		else _directi
+		else if (_inputs.isKeyDown(s))
+			_directionY = 1;
+		else _directionY = 0;
+		if (_inputs.isKeyDown(a))
+			_directionX = -1;
+		else if (_inputs.isKeyDown(d))
+			_directionX = 1;
+		else _directionX = 0;
+		
+		_parentEntity.transform.directionX += getDirectionX();
+		_parentEntity.transform.directionY += getDirectionY();
+		
+	}
+	
+
+	
+	
+	public int getDirectionX() {
+		
+		return this._directionX;
 		
 	}
 	
 	
 	
-	public int getDirectionX() {
-		return this
+	public int getDirectionY(){
+		
+		return this._directionY;
+		
 	}
-	
 	
 }
