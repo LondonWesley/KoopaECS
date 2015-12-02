@@ -41,14 +41,18 @@ public class InputController {
 		int a = Input.KEY_A;
 		int d = Input.KEY_D;
 		
-		
+		if (_inputs.isKeyDown(w))
+			_directionY = 1;
+		else if (_inputs.isKeyDown(s))
+			_directionY = -1;
+		else _directi
 		
 	}
 	
 	
 	
 	public int getDirectionX() {
-		
+		return this
 	}
 	
 	
