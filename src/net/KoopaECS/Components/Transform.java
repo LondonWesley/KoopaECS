@@ -6,8 +6,8 @@ public class Transform {
 	public double x;
 	public double y;
 	
-	public int directionX;
-	public int directionY;
+	public double directionX;
+	public double directionY;
 	
 	
 	public double angle;

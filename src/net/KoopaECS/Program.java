@@ -67,7 +67,7 @@ public class Program extends BasicGame {
 		frame.setShowFPS(true);
 		frame.setVSync(true);
 		
-		new Player(100, 100, "data/images/test.jpg");
+		new Player(100, 100, "data/images/player.png");
 		
 	}
 	

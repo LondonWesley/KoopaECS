@@ -52,8 +52,8 @@ public class InputController {
 			_directionX = 1;
 		else _directionX = 0;
 		
-		_parentEntity.transform.directionX += getDirectionX();
-		_parentEntity.transform.directionY += getDirectionY();
+		_parentEntity.transform.directionX = getDirectionX();
+		_parentEntity.transform.directionY = getDirectionY();
 		
 	}
 	

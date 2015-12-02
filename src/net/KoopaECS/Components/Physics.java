@@ -14,20 +14,24 @@ public class Physics {
 	private double _velocityX;
 	private double _velocityY;
 	
+	private double _friction;
+	
 	private BaseEntity _parentEntity;
 	
 	
 	public Physics(double baseSpeed, double mass, BaseEntity entity) {
 		
-		_baseSpeed    = baseSpeed;
-		_mass 		  = mass;
-		_parentEntity = entity;
+		_baseSpeed    	= baseSpeed;
+		_mass 		  	= mass;
+		_parentEntity 	= entity;
 		
-		_accelerationX = 0;
-		_accelerationY = 0;
+		_accelerationX 	= 0;
+		_accelerationY 	= 0;
 		
-		_velocityX	   = 0;
-		_velocityY	   = 0;
+		_velocityX	   	= 0;
+		_velocityY	   	= 0;
+//TODO: add friction
+		_friction		= 0.89;
 		
 	}
 	
@@ -44,13 +48,33 @@ public class Physics {
 		 _accelerationX = forceX / _mass;
 		 _accelerationY = forceY / _mass;
 		 
+		 
+	}
+	public void addVelocity(){
+		_velocityX += _accelerationX;
+		_velocityY += _accelerationY;
 	}
 	
 	public void updateDirections(){
+//TODO: apply friction to slow down
+		_parentEntity.transform.x += _velocityX;
+		_parentEntity.transform.y += _velocityY;
+		applyFriction();
+	}
+	
+	private void applyFriction(){
 		
-		_parentEntity.transform.x += _accelerationX;
-		_parentEntity.transform.y += _accelerationY;
+		double directionX = _parentEntity.transform.getDirectionX();
+		double directionY = _parentEntity.transform.getDirectionY();
 		
+		//BUG: if you change directions too fast friction is non existant :D
+		//just an ugly thing i did here to test
+		if(directionX == 0)
+			_velocityX = _velocityX*_friction;
+		
+		if(directionY == 0)
+			_velocityY = _velocityY*_friction;
+			
 	}
 	
 	
@@ -70,6 +94,7 @@ public class Physics {
 		
 		calcAcceleration(dt);
 		updateDirections();
+		addVelocity();
 		
 	}
 }
