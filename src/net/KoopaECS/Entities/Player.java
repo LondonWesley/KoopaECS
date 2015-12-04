@@ -15,7 +15,7 @@ public class Player extends BaseEntity {
 		super();
 		
 		inputController = new InputController(this);
-		physics 		= new Physics(100, 10, this);
+		physics 		= new Physics(750, 5, this);
 
 		
 		

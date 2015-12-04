@@ -30,8 +30,8 @@ public class Physics {
 		
 		_velocityX	   	= 0;
 		_velocityY	   	= 0;
-//TODO: add friction
-		_friction		= 0.89;
+//friction should be between 0 and 1
+		_friction		= 0.3;
 		
 	}
 	
@@ -48,36 +48,18 @@ public class Physics {
 		 _accelerationX = forceX / _mass;
 		 _accelerationY = forceY / _mass;
 		 
-		 
 	}
 	public void addVelocity(){
-		_velocityX += _accelerationX;
-		_velocityY += _accelerationY;
+		_velocityX += _accelerationX - _friction*_velocityX;
+		_velocityY += _accelerationY - _friction*_velocityY;
 	}
 	
 	public void updateDirections(){
-//TODO: apply friction to slow down
+		
 		_parentEntity.transform.x += _velocityX;
 		_parentEntity.transform.y += _velocityY;
-		applyFriction();
+
 	}
-	
-	private void applyFriction(){
-		
-		double directionX = _parentEntity.transform.getDirectionX();
-		double directionY = _parentEntity.transform.getDirectionY();
-		
-		//BUG: if you change directions too fast friction is non existant :D
-		//just an ugly thing i did here to test
-		if(directionX == 0)
-			_velocityX = _velocityX*_friction;
-		
-		if(directionY == 0)
-			_velocityY = _velocityY*_friction;
-			
-	}
-	
-	
 	
 	
 	public double getDistance(BaseEntity target){
@@ -86,6 +68,7 @@ public class Physics {
 		double dy = target.transform.y - _parentEntity.transform.y;
 		
 		return Math.sqrt(dx * dx + dx * dy);
+		
 	}
 	
 	
