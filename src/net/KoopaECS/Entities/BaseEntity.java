@@ -19,7 +19,7 @@ public abstract class BaseEntity {
 		 // BaseEntity does not assign a texture, all deriving entities must generate the texture through their constructor. 
 		renderer = new Renderer(this);
 		
-		collider = new Collider();
+		collider = new Collider(this);
 		
 		transform = new Transform();
 		

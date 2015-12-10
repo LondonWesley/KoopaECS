@@ -6,6 +6,12 @@ public class Transform {
 	public double x;
 	public double y;
 	
+	public double boxCollisionWidth;
+	public double boxCollisionHeight;
+	
+	public double boxCollisionOffsetx;
+	public double boxCollisionOffsety;
+	
 	public double directionX;
 	public double directionY;
 	
@@ -15,6 +21,8 @@ public class Transform {
 	
 	public Transform() {
 		
+		boxCollisionWidth 		= 0;
+		boxCollisionHeight 		= 0;
 		x 			= 0;
 		y 			= 0;
 		directionX 	= 0;

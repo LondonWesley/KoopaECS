@@ -13,7 +13,6 @@ public class Renderer {
 	public BaseEntity _parentEntity;
 	
 	
-	
 	public Renderer(BaseEntity entity) {
 		
 		_parentEntity = entity;

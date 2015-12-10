@@ -5,16 +5,15 @@ import net.KoopaECS.Components.Physics;
 import net.KoopaECS.Handlers.EntityHandler;
 
 
-public class Player extends BaseEntity {
+public class Block extends BaseEntity {
 	
 	public InputController inputController;
 	public Physics physics;
 	
-	public Player(float x, float y, String texturePath) {
+	public Block(float x, float y, String texturePath) {
 		
 		super();
 		
-		inputController = new InputController(this);
 		physics 		= new Physics(750, 5, this);
 
 		
@@ -22,12 +21,11 @@ public class Player extends BaseEntity {
 		transform.x = x;
 		transform.y = y;
 		
-		transform.boxCollisionWidth = 42;
-		transform.boxCollisionHeight = 64;
+		transform.boxCollisionWidth = 200;
+		transform.boxCollisionHeight = 200;
 		
 		transform.boxCollisionOffsetx = 0;
 		transform.boxCollisionOffsety = 0;
-		physics.friction = 0.3;
 		
 		
 		renderer.generateTexture(texturePath);
@@ -42,7 +40,6 @@ public class Player extends BaseEntity {
 	public void update(double dt) {		
 		
 		transform.update();
-		inputController.update(dt);
 		physics.update(dt);
 		collider.update();
 		

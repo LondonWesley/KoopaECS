@@ -7,6 +7,8 @@ import net.KoopaECS.Entities.BaseEntity;
 
 public class EntityHandler {
 	
+	//this class make sures all entities update their components
+	
 	private static ArrayList<BaseEntity> _entities;
 	
 	

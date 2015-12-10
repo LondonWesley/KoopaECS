@@ -9,5 +9,8 @@ public class Config {
 	public static int screenHeight = 720 ;
 	public static Color backgroundColor = new Color(5, 5, 5);
 	
+	//Shows the collision boxes of all the entities
+	public static boolean showBoundaries = true;
+	
 	
 }

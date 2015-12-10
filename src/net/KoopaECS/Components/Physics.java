@@ -14,13 +14,16 @@ public class Physics {
 	private double _velocityX;
 	private double _velocityY;
 	
-	private double _friction;
+	public double friction;
+	
+	private boolean _isSolid;
 	
 	private BaseEntity _parentEntity;
 	
 	
 	public Physics(double baseSpeed, double mass, BaseEntity entity) {
 		
+//TODO: make physical properties public and accessible
 		_baseSpeed    	= baseSpeed;
 		_mass 		  	= mass;
 		_parentEntity 	= entity;
@@ -31,7 +34,7 @@ public class Physics {
 		_velocityX	   	= 0;
 		_velocityY	   	= 0;
 //friction should be between 0 and 1
-		_friction		= 0.3;
+		friction		= 0.3; //by default
 		
 	}
 	
@@ -50,8 +53,8 @@ public class Physics {
 		 
 	}
 	public void addVelocity(){
-		_velocityX += _accelerationX - _friction*_velocityX;
-		_velocityY += _accelerationY - _friction*_velocityY;
+		_velocityX += _accelerationX - friction*_velocityX;
+		_velocityY += _accelerationY - friction*_velocityY;
 	}
 	
 	public void updateDirections(){

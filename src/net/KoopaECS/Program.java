@@ -7,6 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+import net.KoopaECS.Entities.Block;
 import net.KoopaECS.Entities.Player;
 import net.KoopaECS.Handlers.CollisionHandler;
 import net.KoopaECS.Handlers.EntityHandler;
@@ -68,6 +69,7 @@ public class Program extends BasicGame {
 		frame.setVSync(true);
 		
 		new Player(100, 100, "data/images/player.png");
+		new Block(600,200, "data/images/test.jpg");
 		
 	}
 	
@@ -88,7 +90,7 @@ public class Program extends BasicGame {
 		// Change dt from milliseconds to seconds
 		double deltaTime = ((double) dt) / 1000;
 		
-		//_collisionHandler.update(dt);
+		_collisionHandler.update(deltaTime);
 		_entityHandler.update(deltaTime);
 		
 	}
