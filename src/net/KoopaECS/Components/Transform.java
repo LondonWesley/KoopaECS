@@ -9,8 +9,8 @@ public class Transform {
 	public double boxCollisionWidth;
 	public double boxCollisionHeight;
 	
-	public double boxCollisionOffsetx;
-	public double boxCollisionOffsety;
+	public double boxCollisionOffsetX;
+	public double boxCollisionOffsetY;
 	
 	public double directionX;
 	public double directionY;

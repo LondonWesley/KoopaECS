@@ -1,0 +1,88 @@
+Saturday, December 12, 2015
+Aeomi: Who's Brittany
+Koopa: is that it only detects if it collides. also thats for my friend
+Aeomi: grilfrend
+Koopa: im making a stencil with plexiglass
+Koopa: no
+Koopa: friend :P
+Aeomi: future grillfrend then
+Koopa: its a gift
+Koopa: and oh god no
+Koopa: besides shes gay anyway
+Koopa: aanyway
+Aeomi: you can be too
+Koopa: dafuq that wouldnt solve anything XD
+Aeomi: im only kidin
+Koopa: lol
+Aeomi: hmmmm
+Aeomi: how do we do this though
+Aeomi: close tv
+Aeomi: and open a meeting instead
+Koopa: oh
+Koopa: k
+Koopa: m47-354-527
+Koopa: you in?
+Aeomi: doesn't work o.o
+Aeomi: update your tv
+Aeomi: apparently
+Koopa: lol
+Koopa: lol i had tv10
+Koopa: m36-310-657
+Koopa: this is where i was heading and yeah its prettty ugly
+Aeomi: enable whiteboard
+Aeomi: enable it
+Aeomi: :c
+Aeomi: in tv settings
+Koopa: hold on
+Aeomi: okay well first
+Aeomi: go to eclipse
+Aeomi: Block.java
+Aeomi: What is block
+Koopa: oh
+Koopa: this was just gonna be a test for collision
+Aeomi: So it's not a world object?
+Koopa: just like a little test wall or platform
+Koopa: well it would be. but for now i just wanted to get some sort of system down
+Aeomi: ok
+Aeomi: question
+Koopa: yes.
+Aeomi: What Components does block have
+Koopa: .-.
+Aeomi: Thank you
+Koopa: my bad
+Aeomi: I was so confused
+Koopa: sorry about that i just quickly copy and pasted it straight from player
+Koopa: becuase lazyness
+Koopa: bad habits man ;c
+Aeomi: Why is it all static
+Aeomi: and why line 17 massive tabs
+Aeomi: 16
+Koopa: oh i actually dont remember..
+Koopa: i think iwas going to organize all the variables in here but then just didint
+Aeomi: they're not connected
+Aeomi: it's all fine without large tabs
+Aeomi: boxCollisionOffsetx -> OffsetX
+Koopa: so variables that relate or have a close relation
+Aeomi: NO
+Aeomi: D:
+Aeomi: Change it to boxCollisionOffsetX
+Aeomi: I just meant make the x->X
+Aeomi: my bad
+Koopa: rip
+Koopa: becuase iwas like didint you say just name out the variables clearly ._.
+Koopa: should i clean this up?
+Koopa: i dont think theyre gonna mess with this anyway
+Aeomi: nah it's fine
+Aeomi: it's debug code
+Aeomi: it's always gonna be messy
+Koopa: ima just move it and round it down a bit more
+Koopa: so its easier to read on screen
+Aeomi: yeah sure
+Koopa: I may have to work on this later
+Koopa: i gotta get this stencil done
+Koopa: before our christmas break
+Aeomi: ah gotca
+Koopa: but ill just save the chat log so i know what to change later
+Aeomi: goodluck c: and ok
+Koopa: also how do you feel on that idea though
+Koopa: ill see if i can come up with a better way of doing the collision

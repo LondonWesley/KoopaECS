@@ -8,15 +8,13 @@ public class Physics {
 	
 	private double _baseSpeed;
 	
-	private double _accelerationX;
-	private double _accelerationY;
+	public double accelerationX;
+	public double accelerationY;
 	
 	private double _velocityX;
 	private double _velocityY;
 	
 	public double friction;
-	
-	private boolean _isSolid;
 	
 	private BaseEntity _parentEntity;
 	
@@ -28,8 +26,8 @@ public class Physics {
 		_mass 		  	= mass;
 		_parentEntity 	= entity;
 		
-		_accelerationX 	= 0;
-		_accelerationY 	= 0;
+		accelerationX 	= 0;
+		accelerationY 	= 0;
 		
 		_velocityX	   	= 0;
 		_velocityY	   	= 0;
@@ -48,20 +46,33 @@ public class Physics {
 		double forceX = (directionX * _baseSpeed) * dt;
 		double forceY = (directionY * _baseSpeed) * dt;
 		
-		 _accelerationX = forceX / _mass;
-		 _accelerationY = forceY / _mass;
+		accelerationX = forceX / _mass;
+		accelerationY = forceY / _mass;
 		 
 	}
+	
+	
 	public void addVelocity(){
-		_velocityX += _accelerationX - friction*_velocityX;
-		_velocityY += _accelerationY - friction*_velocityY;
+
+		if(!_parentEntity.xCollide)
+			_velocityX += accelerationX - friction*_velocityX;
+		else _velocityX = 0;
+		if(!_parentEntity.yCollide)
+			_velocityY += accelerationY - friction*_velocityY;
+		else _velocityY = 0;
+		
 	}
+	
 	
 	public void updateDirections(){
 		
-		_parentEntity.transform.x += _velocityX;
-		_parentEntity.transform.y += _velocityY;
-
+		if(!_parentEntity.xCollide)
+			_parentEntity.transform.x += _velocityX;
+		else _velocityX = 0;
+		if(!_parentEntity.yCollide)
+			_parentEntity.transform.y += _velocityY;
+		else _velocityY = 0;
+	
 	}
 	
 	
@@ -79,8 +90,8 @@ public class Physics {
 	public void update(double dt){
 		
 		calcAcceleration(dt);
-		updateDirections();
 		addVelocity();
+		updateDirections();
 		
 	}
 }

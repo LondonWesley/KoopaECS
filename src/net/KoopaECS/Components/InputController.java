@@ -13,7 +13,6 @@ public class InputController {
 	private int _directionX;
 	private int _directionY;
 	
-	
 	public InputController(BaseEntity entity) {
 		
 		_parentEntity = entity;
@@ -34,6 +33,7 @@ public class InputController {
 	
 	// This will set the input directions
 	private void processInputs(double dt) {
+		
 		
 		// Used keys
 		int w = Input.KEY_W;

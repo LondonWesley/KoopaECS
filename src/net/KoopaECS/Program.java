@@ -1,6 +1,9 @@
 package net.KoopaECS;
 
 
+import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -11,13 +14,14 @@ import net.KoopaECS.Entities.Block;
 import net.KoopaECS.Entities.Player;
 import net.KoopaECS.Handlers.CollisionHandler;
 import net.KoopaECS.Handlers.EntityHandler;
+import net.KoopaECS.Handlers.LevelHandler;
 import net.KoopaECS.Handlers.RenderHandler;
 import net.KoopaECS.Util.Config;
 
 
 public class Program extends BasicGame {
 	
-	public enum STATES {RUNNING, PAUSED, STOP};
+	public enum STATES {RUNNING, PAUSED, STOP, MAIN_MENU};
 	private STATES _state;
 	
 	AppGameContainer _window;
@@ -26,15 +30,17 @@ public class Program extends BasicGame {
 	private CollisionHandler _collisionHandler;
 	private EntityHandler 	 _entityHandler;
 	
+	public LevelHandler levelHandler;
 	
 	
 	public Program() throws SlickException {
 		
 		super(Config.title);
 		
-		_renderHandler    = new RenderHandler();
-		_collisionHandler = new CollisionHandler();
-		_entityHandler    = new EntityHandler();
+		_renderHandler    	= new RenderHandler();
+		_collisionHandler 	= new CollisionHandler();
+		_entityHandler    	= new EntityHandler();
+		levelHandler		= new LevelHandler();
 		
 		_window = new AppGameContainer(this);
 		_window.setDisplayMode(Config.screenWidth, Config.screenHeight, false);
@@ -51,6 +57,7 @@ public class Program extends BasicGame {
 	
 	public void run() throws SlickException {
 		
+		//TODO: make a pause button for later :c
 		_state = STATES.RUNNING;
 		
 		
@@ -68,8 +75,17 @@ public class Program extends BasicGame {
 		frame.setShowFPS(true);
 		frame.setVSync(true);
 		
-		new Player(100, 100, "data/images/player.png");
-		new Block(600,200, "data/images/test.jpg");
+		try {
+			
+			levelHandler.levelLoad("data/levels/testLevel.txt");
+		} catch (FileNotFoundException | URISyntaxException | NullPointerException e) {
+			
+			System.out.println("Level not found. Make sure file path is correct and extention is added!(.txt)");
+			e.printStackTrace();
+		}
+		
+		 //new Player(100, 100, "data/images/player.png");
+		 //new Block(600,200, "data/images/test.jpg");
 		
 	}
 	

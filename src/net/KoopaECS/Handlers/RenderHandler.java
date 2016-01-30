@@ -54,8 +54,8 @@ public class RenderHandler {
 				
 				graphics.setColor(new Color(255, 0, 0));
 				graphics.drawRect(cx, cy, width, height);
-				graphics.drawString("(" +cx+ "," +cy+ ")", cx - 50, cy);
-				graphics.drawString("("+ Math.round(cx+width) + "," +Math.round(cy+height)+ ")2", cx + width + 10, cy + height);
+				graphics.drawString("#1 (" +Math.round(cx)+ "," +Math.round(cy)+ ")", cx - 50, cy - 20);
+				graphics.drawString("#2 ("+ Math.round(cx+width) + "," +Math.round(cy+height)+ ")", cx + width + 10, cy + height);
 				
 			}
 		}

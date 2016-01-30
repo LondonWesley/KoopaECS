@@ -12,6 +12,11 @@ public abstract class BaseEntity {
 	public Collider  collider;
 	public Transform transform;
 	
+	public boolean 	xCollide;
+	public boolean 	yCollide;
+	
+	public double	velocity;
+	
 	
 	// The parent to all entities -- Should instantiate its base-components
 	public BaseEntity() {
@@ -22,6 +27,13 @@ public abstract class BaseEntity {
 		collider = new Collider(this);
 		
 		transform = new Transform();
+		
+		xCollide = false;
+		yCollide = false;
+		
+		velocity = 0;// for moving class detection
+		
+		
 		
 		//EntityHandler.registerEntity(this);
 		

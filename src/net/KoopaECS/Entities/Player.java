@@ -16,19 +16,22 @@ public class Player extends BaseEntity {
 		
 		inputController = new InputController(this);
 		physics 		= new Physics(750, 5, this);
-
+		
+		
 		
 		
 		transform.x = x;
 		transform.y = y;
 		
-		transform.boxCollisionWidth = 42;
-		transform.boxCollisionHeight = 64;
+		transform.boxCollisionWidth = 64;
+		transform.boxCollisionHeight = 62;
 		
-		transform.boxCollisionOffsetx = 0;
-		transform.boxCollisionOffsety = 0;
-		physics.friction = 0.3;
+		transform.boxCollisionOffsetX = 0;
+		transform.boxCollisionOffsetY = 0;
 		
+		physics.friction = 0.2;
+		
+		collider.stayOnScreen = true;
 		
 		renderer.generateTexture(texturePath);
 		
