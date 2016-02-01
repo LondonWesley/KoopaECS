@@ -75,17 +75,17 @@ public class Program extends BasicGame {
 		frame.setShowFPS(true);
 		frame.setVSync(true);
 		
-		try {
+		/*try {
 			
 			levelHandler.levelLoad("data/levels/testLevel.txt");
 		} catch (FileNotFoundException | URISyntaxException | NullPointerException e) {
 			
 			System.out.println("Level not found. Make sure file path is correct and extention is added!(.txt)");
 			e.printStackTrace();
-		}
+		}*/
 		
-		 //new Player(100, 100, "data/images/player.png");
-		 //new Block(600,200, "data/images/test.jpg");
+		 new Player(100, 100, "data/images/player.png");
+		 new Block(600,200, "data/images/test.jpg");
 		
 	}
 	
